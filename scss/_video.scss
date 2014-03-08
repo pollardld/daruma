@@ -1,0 +1,179 @@
+/*********************
+ Video SYTLES
+*********************/
+
+#big-video-wrap {
+	background-color: #000;
+	height: 30rem;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+
+	#big-video-vid {
+		height: 100% !important;
+		width: 100%;
+
+		video {
+			height: 100% !important;
+			width: 100% !important;
+		}
+	}
+
+	.vjs-play-control {
+
+		&.vjs-playing {
+
+			.vjs-control-text {
+				color: $link-color;
+				position: relative;
+
+				&:before {
+					content: '||';
+					letter-spacing: 2px;
+					margin-right: 10px;
+				}
+			}
+		}
+
+		&.vjs-paused {
+
+			&.vjs-control-text {
+				color: $link-color;
+				position: relative;
+				text-indent: -9999px;
+
+				&:before {
+					content: '||';
+					position: absolute;
+					text-indent: 0;
+				}
+			}
+		}
+	}
+
+	.vjs-fullscreen-control {
+
+		.vjs-control-text {
+			color: $link-color;
+		}
+	}
+
+	.vjs-vol-0 {
+
+		.vjs-control-text {
+			color: $link-color;
+		}
+	}
+
+	.vjs-vol-3 {
+
+		.vjs-control-text {
+			color: $link-color;
+		}
+	}
+}
+
+.vjs-control-bar {
+	bottom: 2rem;
+	color: #fff;
+	cursor: pointer;
+	font-size: .75em; // control icon size with ems
+	left: 5%;
+	position: absolute;
+	z-index: 9;
+
+	.vjs-play-control {
+		outline: none;
+		position: relative;
+		text-indent: -999px;
+
+		&:before {
+			background: rgba(255,255,255,0.8);
+			border-radius: 50%;
+			content: '';
+			height: 3em;
+			left: 0;
+			position: absolute;
+			width: 3em;
+		}
+
+		&.vjs-playing {
+
+			&:after {
+				color: #000;
+				content: '||';
+				font-size: 2em;
+				left: 0;
+				line-height: .25em;
+				opacity: .5;
+				position: absolute;
+				text-align: center;
+				text-indent: 0;
+				width: 1.5em;
+			}
+		}
+
+		&.vjs-paused {
+
+			&:after {
+				border-left: 1em solid rgba(0,0,0,0.5);
+				border-bottom: .75em solid transparent;
+				border-top: .75em solid transparent;
+				content: '';
+				height: 0;
+				left: 1.125em;
+				position: absolute;
+				top: .75em;
+				width: 0;
+			}
+		}
+	}
+
+	.vjs-mute-control {
+		left: 4em;
+		outline: none;
+		position: relative;
+		text-indent: -999px;
+		top: -1.25em;
+
+		&:before {
+			background: rgba(255,255,255,0.8);
+			border-radius: 50%;
+			content: '';
+			height: 3em;
+			left: 0;
+			position: absolute;
+			width: 3em;
+		}
+
+		&.vjs-vol-0 {
+
+			&:after {
+				content: '))';
+			}
+		}
+
+		&:after {
+			background: rgba(0,0,0,1);
+			border-right: .5em solid rgba(0,0,0,0.5);
+			border-top: .45em solid rgba(255,255,255,0.8);
+			border-bottom: .45em solid rgba(255,255,255,0.8);
+			color: rgba(0,0,0,1);
+			content: 'x';
+			font-family: $sans-serif-header;
+			font-weight: 600;
+			height: .6125em;
+			left: .6125em;	
+			line-height: .5em;		
+			opacity: .5;
+			position: absolute;
+			top: .75em;
+			text-indent: 1.25em;
+			width: .5em;
+		}
+	}
+
+	.vjs-current-time, .vjs-time-divider, .vjs-duration, .vjs-remaining-time, .vjs-progress-control, .vjs-volume-control, .vjs-fullscreen-control {
+		display: none;
+	}
+}

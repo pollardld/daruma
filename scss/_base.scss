@@ -1,0 +1,411 @@
+/******************************************************************
+
+Stylesheet: Base Mobile Stylesheet
+
+******************************************************************/
+
+
+
+/*********************
+GENERAL STYLES
+*********************/
+
+html, body {
+	background: $white;
+	color: $gray;
+	font-size: 100%;
+	font-family: $sans-serif-reading;
+	margin: 0;
+	padding: 0;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+
+.wrapper {
+	@include clearfix;
+	overflow: hidden;
+	position: relative;
+}
+
+.page-content {
+	background: $white;
+	position: relative;
+	z-index: 2;
+	@include clearfix;
+	margin-bottom: 8em;
+}
+
+.content-wrapper {
+	@include clearfix;
+	padding: 4em 0;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 2em auto;
+	@include clearfix;
+}
+
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+	color: $black;
+	text-decoration: underline;
+	@include transition(all 0.2s ease-in-out);
+
+	/* on hover */
+	&:hover, &:focus {
+		color: $link-hover;
+		text-decoration: none;
+	}
+
+	/* on click */
+	&:active {
+
+	}
+
+	/* mobile tap color */
+	&:link {
+		/*
+		this highlights links on iPhones/iPads.
+		so it basically works like the :hover selector
+		for mobile devices.
+		*/
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	font-family: $sans-serif-header;
+	text-rendering: optimizelegibility;
+	font-weight: 300;
+}
+
+h2 {
+	font-size: 2.8em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+/*********************
+HEADER SYTLES
+*********************/
+
+#scroll-btn {
+	bottom: 2rem;
+	content: '';
+	height: 3em;
+	left: 40%;
+	position: absolute;
+	text-align: center;
+	text-decoration: none;
+	width: 15%;
+
+	&:before {
+		background: #fff;
+		border-radius: 50%;
+		bottom: 0;
+		color: #000;
+		content: '⇓';
+		font-size: 2em;
+		height: 2em;
+		line-height: 2em;
+		opacity: 0.8;
+		position: absolute;
+		width: 2em;
+		@include vendor-prefix (transition, 0.3s color ease);
+
+		&:hover {
+			color: $link-hover;
+		}
+	}
+
+	&:hover {
+
+		&:before {
+			color: $link-hover;
+		}
+	}
+
+	&.ended {
+		bottom: 25rem;
+		@include vendor-prefix (transition, 0.5s all ease);
+	}
+}
+
+.site-header {
+	@include clearfix;
+	height: 30rem;
+	position: relative;
+	
+	.container {
+		margin: 0 auto;
+	}
+	
+	h1#logo { 
+		margin: 0;
+		padding: .5em 0;
+		width: 8em;
+		display: inline-block;
+		float: left;	
+		a{
+			width: 100%;
+			height: 40px;
+			display: block;
+			text-indent: -9999px;
+			background-image: url(../img/daruma-logo.png);
+			background-repeat: no-repeat;
+			background-size: 100%;
+		}
+	}
+	
+	h2 {
+		margin: 6em 0 1em;
+		color: $white;
+		font-weight: 300;
+		a {
+			color: $white;
+		}
+	}
+	
+	button {
+		background: rgba(#FFFFFF, 0.5);
+		border: none;
+		float: right;
+		padding: 2.25em;
+		font-size: .8em;
+		font-family: $sans-serif-header;
+		font-weight: 600;
+		&:hover {
+			color: $white;
+		}
+	}
+	
+}
+
+.navbar {
+	background: rgba($white, .8);
+	@include clearfix;
+	float: left;
+	padding: 0 2em;
+	position: relative;
+	
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.primary-menu {
+	display: inline-block;
+	float: left;
+	margin: .7em 0 .7em 2em;
+	
+	> ul {
+		text-align: left;
+		
+		li {
+			list-style: none;
+			display: inline-block;
+			ul {
+				display: none;
+				z-index: 9999;
+				width: 100%;
+				position: absolute;
+				background: lighten($white, 5%);
+				text-align: center;
+				left: 0;
+				li {
+					float: right;
+					padding: .5em;
+					a {
+						font-size: .7em;
+						color: $gray;
+					}
+					&:hover {
+						background: rgba($gray, 1);
+					}
+				}
+			}
+			
+			&:hover ul {
+				display: block;
+			}
+			
+			a {
+				text-decoration: none;
+				color: $gray;
+				margin: 0;
+				font-family: $sans-serif-header;
+				font-weight: 600;
+				text-transform: uppercase;
+				font-size: .8em;
+				letter-spacing: .1em;
+				padding: 2em .7em;
+				
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+}
+	
+/*********************
+PAGE & CONTENT STYLES
+*********************/
+
+/* Homepage */
+
+.homepg-cta {
+	position: relative;
+	z-index: 0;
+	
+	h3, p {
+		width: 90%;
+		margin-left: 10%;
+	}
+
+	p {
+		line-height: 2em;
+	}
+	
+	img {
+		bottom: 0;
+		opacity: 0.5;
+		position: absolute;
+		z-index: -1;
+	}
+
+}
+
+#popup-cta {
+	
+	img {
+		width: 30%;
+		left: -20em;
+		@include transform(rotate(-25deg));
+		@include transition(all .5s ease);
+	}
+
+	.cta-animate {
+
+		img {
+			@include transform(rotate(0deg));
+			left: -2em;
+		}
+	}
+}
+
+#classes-cta {
+	background: darken($white, 5%);
+	
+	h3, p {	
+		width: 80%;
+		margin-left: 0;
+		margin-right: 20%;
+	}
+	
+	img {
+		width: 35%;
+		right: -20em;
+		@include transform(rotate(-35deg));
+		@include transition(all .5s ease);
+	}
+	
+	.cta-animate {
+		img {
+			@include transform(rotate(0deg));
+			right: -4em;
+		}
+	}
+}
+
+
+/*********************
+POST & CONTENT STYLES
+*********************/
+
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+
+
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
+
+
+/******************************************************************
+COMMENT FORM STYLES
+******************************************************************/
+
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.site-footer {
+	background: $gray;
+	color: $white;
+	@include clearfix;
+	z-index: 1;
+	width: 100%;
+	bottom: 0; 
+	height: 8em;
+	ul {
+		margin-top: 0;
+		float: left;
+		li {
+			margin: 0 .5em .5em 0;
+			display: inline-block;
+		}
+		a {
+			color: $white;
+			text-decoration: none;
+			font-family: $sans-serif-header;
+			text-transform: uppercase;
+			font-size: .65em;
+			font-weight: 600;
+			&:hover {
+				opacity: .7;
+			}
+		}
+	}
+	form {
+		p { font-size: .9em; }
+		input[type="email"] {
+			width: 65%;
+			float: left;
+		}
+		button[type="submit"] {
+			width: 24%;
+		}
+	}
+	
+	.copyright {
+		font-size: .85em;
+		float: right;
+		padding: 0 0 0;
+		margin: 0;
+	}
+}
